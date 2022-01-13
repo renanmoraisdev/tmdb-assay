@@ -1,0 +1,21 @@
+{
+  "name": "Renan Morais Frontend Assessment",
+  "short_name": "Renan Morais Frontend Assessment",
+  "icons": [
+    {
+      "src": "/images/icon-192x192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "/images/icon-512x512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "background_color": "#06092B",
+  "description": "Frontend Assessment T10",
+  "display": "fullscreen",
+  "start_url": "/",
+  "theme_color": "#ffffff"
+}
