@@ -32,7 +32,6 @@ export const Card = ({
         </picture>
         <figcaption>
           <h3>{movie.original_title}</h3>
-          <p>Science Fiction</p>
         </figcaption>
         <S.CardBadge>{movie.vote_average}</S.CardBadge>
       </S.CardWrapper>

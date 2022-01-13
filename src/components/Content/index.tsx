@@ -1,6 +1,6 @@
 import { ReactElement, useState } from 'react';
 
-import { IMovie, IMovieResponse } from '@/@types/movie';
+import { IGenre, IMovie, IMovieResponse } from '@/@types/movie';
 import { makeApi } from '@/services/api';
 
 import { MovieModal } from '../Modal/MovieModal';
@@ -10,9 +10,14 @@ import * as S from './styles';
 type ContentProps = {
   path: string;
   movies: IMovie[];
+  genres: IGenre[];
 };
 
-export const Content = ({ path, movies }: ContentProps): ReactElement => {
+export const Content = ({
+  path,
+  movies,
+  genres,
+}: ContentProps): ReactElement => {
   const [currentMovie, setCurrentMovie] = useState<IMovie>({});
   const [collectionMovies, setCollectionMovies] = useState<IMovie[]>(movies);
   const [modalContent, setModalContent] = useState<boolean>(false);
@@ -49,6 +54,7 @@ export const Content = ({ path, movies }: ContentProps): ReactElement => {
 
       <MovieModal
         movie={currentMovie}
+        genres={genres}
         open={!!modalContent}
         setOpen={setModalContent}
       />

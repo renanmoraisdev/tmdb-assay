@@ -20,10 +20,19 @@ export interface IMovie {
   vote_average?: number;
 }
 
+export interface IGenre {
+  id?: integer;
+  name?: string;
+}
+
 export interface IMovieResponse {
   page?: integer;
   results?: IMovie[];
   dates?: IDates;
   total_pages?: integer;
   total_pages?: integer;
+}
+
+export interface IGenreResponse {
+  genres?: IGenre[];
 }
