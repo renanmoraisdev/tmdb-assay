@@ -11,8 +11,14 @@ export const Menu = (): ReactElement => {
       </S.Logo>
 
       <S.MenuItemsWrapper>
-        <MenuItem href="#!" active>
+        <MenuItem href="/upcoming-movies">
           <p>Upcoming Movies</p>
+        </MenuItem>
+        <MenuItem href="/popular-movies">
+          <p>Popular Movies</p>
+        </MenuItem>
+        <MenuItem href="/top-rated-movies">
+          <p>Top Rated Movies</p>
         </MenuItem>
       </S.MenuItemsWrapper>
     </S.MenuContainer>
