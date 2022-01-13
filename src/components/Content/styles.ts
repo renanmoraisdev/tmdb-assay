@@ -18,3 +18,21 @@ export const CardsWrapper = styled.div`
     margin-bottom: 6rem;
   }
 `;
+
+export const LoadButton = styled.button`
+  padding: 0.8rem;
+  width: 100%;
+  margin: 3rem auto 0;
+  border-radius: 5rem;
+  background: #fff;
+  background-size: 100% 200%;
+  background-position: center;
+  text-align: center;
+  color: #222;
+
+  transition: 0.16s ease-in-out;
+
+  &:hover {
+    background-position: center 100%;
+  }
+`;

@@ -5,13 +5,14 @@ import { Content } from '@/components/Content';
 import Layout from '@/components/Layout';
 
 export type TemplateMoviesGroupProps = {
+  path: string;
   movies: IMovie[];
 };
 
-const TemplateMoviesGroup = ({ movies }) => {
+const TemplateMoviesGroup = ({ path, movies }) => {
   return (
     <Layout>
-      <Content movies={movies} />
+      <Content path={path} movies={movies} />
     </Layout>
   );
 };

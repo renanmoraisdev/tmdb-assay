@@ -1,23 +1,39 @@
 import { ReactElement, useState } from 'react';
 
-import { IMovie } from '@/@types/movie';
+import { IMovie, IMovieResponse } from '@/@types/movie';
+import { makeApi } from '@/services/api';
 
 import { MovieModal } from '../Modal/MovieModal';
 import { Card } from './Card';
 import * as S from './styles';
 
 type ContentProps = {
+  path: string;
   movies: IMovie[];
 };
 
-export const Content = ({ movies }: ContentProps): ReactElement => {
+export const Content = ({ path, movies }: ContentProps): ReactElement => {
   const [currentMovie, setCurrentMovie] = useState<IMovie>({});
-  const [modalContent, setModalContent] = useState(false);
+  const [collectionMovies, setCollectionMovies] = useState<IMovie[]>(movies);
+  const [modalContent, setModalContent] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [page, setPage] = useState<number>(1);
+
+  const loadMoreMovies = () => {
+    setLoading(true);
+    const api = makeApi();
+
+    api.get<IMovieResponse>(`${path}?page=${page + 1}`).then(response => {
+      setCollectionMovies([...collectionMovies, ...response.data.results]);
+      setLoading(false);
+      setPage(page + 1);
+    });
+  };
 
   return (
     <S.ContentContainer>
       <S.CardsWrapper>
-        {movies?.map(movie => (
+        {collectionMovies?.map(movie => (
           <Card
             key={movie.id}
             movie={movie}
@@ -26,6 +42,11 @@ export const Content = ({ movies }: ContentProps): ReactElement => {
           />
         ))}
       </S.CardsWrapper>
+
+      <S.LoadButton onClick={loadMoreMovies}>
+        {loading ? 'Carregando...' : 'Carregar Mais'}
+      </S.LoadButton>
+
       <MovieModal
         movie={currentMovie}
         open={!!modalContent}

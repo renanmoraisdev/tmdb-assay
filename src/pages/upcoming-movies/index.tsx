@@ -19,6 +19,7 @@ export const getServerSideProps: GetServerSideProps<TemplateMoviesGroupProps> =
 
       return {
         props: {
+          path,
           movies: response.data.results,
         },
       };

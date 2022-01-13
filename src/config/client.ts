@@ -1,5 +1,5 @@
 const configClient = {
-  title: 'Renan Morais Frontend Assessment',
+  title: 'Renan Morais TMDB',
   subtitle: '',
   description: '',
 };
