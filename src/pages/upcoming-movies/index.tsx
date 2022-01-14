@@ -10,6 +10,7 @@ import TemplateMoviesGroup, {
 const UpcomingMovies: NextPage<TemplateMoviesGroupProps> = props => (
   <TemplateMoviesGroup {...props} />
 );
+
 export const getServerSideProps: GetServerSideProps<TemplateMoviesGroupProps> =
   async context => {
     try {

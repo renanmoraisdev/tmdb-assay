@@ -24,10 +24,12 @@ export const MovieModal = ({
     <Modal open={open} onClose={() => setOpen(false)}>
       <S.MovieModalContainer>
         <picture>
-          <img
-            src={`https://image.tmdb.org/t/p/w500${movie?.poster_path}`}
-            alt={`[${movie?.original_title}]`}
-          />
+          {typeof movie.poster_path !== 'undefined' ? (
+            <img
+              src={`https://image.tmdb.org/t/p/w780${movie?.poster_path}`}
+              alt={`[${movie?.original_title}]`}
+            />
+          ) : null}
 
           <div className="picture__footer">
             <h2 className="title">{movie?.original_title}</h2>
